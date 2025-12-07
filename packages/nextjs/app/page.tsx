@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { BugAntIcon } from "@heroicons/react/24/outline";
 import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
@@ -12,84 +12,73 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-            <span className="block text-xl font-bold">(SpeedRunEthereum Challenge: Tokenization extension)</span>
-          </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
+      <div className="flex flex-col items-center grow pt-12">
+        {/* HEADER */}
+        <header className="px-5 text-center">
+          <h1 className="text-5xl font-bold mb-3">Tokenization Project</h1>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            A full-stack Web3 demo where users can mint, purchase, and transfer NFTs. Built with Hardhat, Next.js,
+            Wagmi, Viem & TailwindCSS.
+          </p>
+        </header>
 
-          <div className="flex items-center flex-col flex-grow mt-4">
-            <div className="px-5 w-[90%]">
-              <h1 className="text-center mb-6">
-                <span className="block text-4xl font-bold">Challenge: Tokenization</span>
-              </h1>
-              <div className="flex flex-col items-center justify-center">
-                <Image
-                  src="/hero.png"
-                  width="727"
-                  height="231"
-                  alt="challenge banner"
-                  className="rounded-xl border-4 border-primary"
-                />
-                <div className="max-w-3xl">
-                  <p className="text-center text-lg mt-8">
-                    🎫 Create a unique token to learn the basics of 🏗️ Scaffold-ETH 2. You'll use 👷‍♀️
-                    <a
-                      href="https://hardhat.org/getting-started/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline"
-                    >
-                      HardHat
-                    </a>{" "}
-                    to compile and deploy smart contracts. Then, you'll use a template React app full of important
-                    Ethereum components and hooks. Finally, you'll deploy an NFT to a public network to share with
-                    friends! 🚀
-                  </p>
-                  <p className="text-center text-lg">
-                    🌟 The final deliverable is an app that lets users purchase and transfer NFTs. Deploy your contracts
-                    to a testnet then build and upload your app to a public web server. Submit the url on{" "}
-                    <a href="https://speedrunethereum.com/" target="_blank" rel="noreferrer" className="underline">
-                      SpeedRunEthereum.com
-                    </a>{" "}
-                    !
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* CONNECTED ADDRESS */}
+        <div className="flex flex-col items-center mt-8">
+          <p className="font-medium text-lg">Connected Wallet</p>
+          <Address address={connectedAddress} />
         </div>
 
-        <div className="grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col md:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+        {/* HERO SECTION */}
+        <section className="flex flex-col items-center mt-12 px-5 w-full">
+          <Image
+            src="/hero.png"
+            width={727}
+            height={231}
+            alt="Challenge banner"
+            className="rounded-xl border-4 border-primary shadow-lg"
+          />
+
+          <div className="max-w-3xl mt-10 space-y-6 text-center text-lg">
+            <p>
+              This project demonstrates a full NFT tokenization workflow. Smart contracts are compiled & deployed using{" "}
+              <a href="https://hardhat.org/getting-started/" target="_blank" rel="noreferrer" className="underline">
+                Hardhat
+              </a>
+              , while the frontend uses a modern Web3 React stack powered by Wagmi & Viem.
+            </p>
+
+            <p>
+              Users can mint unique NFTs, view ownership, and transfer tokens between wallets. This dapp interacts with
+              the Smart Contract{" "}
+              <a
+                href="https://sepolia.etherscan.io/address/0xeB933FcF0af2EC4fA4E3Ef4E6A9F97a8759E0c1C"
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
+                YourCollectible.sol
+              </a>
+              , deployed on a Sepolia test network at address 0xeB933FcF0af2EC4fA4E3Ef4E6A9F97a8759E0c1C.
+            </p>
+          </div>
+        </section>
+
+        {/* FEATURE CARDS */}
+        <section className="grow bg-base-300 w-full mt-20 px-8 py-14">
+          <div className="flex justify-center items-center gap-14 flex-col md:flex-row">
+            {/* Debug Contracts */}
+            <div className="bg-base-100 px-10 py-10 rounded-3xl max-w-xs flex flex-col items-center text-center shadow-md">
               <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
+              <p className="mt-4">
+                Inspect & interact with your smart contracts using the{" "}
                 <Link href="/debug" passHref className="link">
                   Debug Contracts
                 </Link>{" "}
-                tab.
-              </p>
-            </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
+                panel.
               </p>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );
