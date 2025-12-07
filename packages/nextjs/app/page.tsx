@@ -17,8 +17,8 @@ const Home: NextPage = () => {
         <header className="px-5 text-center">
           <h1 className="text-5xl font-bold mb-3">Tokenization Project</h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            A full-stack Web3 demo where users can mint, purchase, and transfer NFTs. Built with Hardhat, Next.js,
-            Wagmi, Viem & TailwindCSS.
+            A full-stack Web3 demo where users can mint, purchase, and transfer NFTs. Built with Scaffold-Eth-2
+            (Hardhat, Next.js, Wagmi, Viem & TailwindCSS).
           </p>
         </header>
 
