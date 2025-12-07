@@ -9,7 +9,9 @@ Users can **mint**, **view**, and **transfer** a simple ERC-721 NFT directly fro
 ## 🚀 Live Demo
 
 **Frontend (Vercel):** https://sre-challenge-00-tokenization-nextj.vercel.app/ 
+
 **Smart Contract (Sepolia):** `0xeB933FcF0af2EC4fA4E3Ef4E6A9F97a8759E0c1C`
+
 **Block Explorer:** https://sepolia.etherscan.io/address/0xeB933FcF0af2EC4fA4E3Ef4E6A9F97a8759E0c1C
 
 ---
